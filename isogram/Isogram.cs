@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 public static class Isogram
 {
-    private const string Pattern = @"[^\\s0-9a-zA-Z]+";
     public static bool IsIsogram(string word)
     {
         if (string.IsNullOrWhiteSpace(word))
@@ -13,7 +11,7 @@ public static class Isogram
         }
         var dict = new Dictionary<char, int>();
 
-        string newWord = Regex.Replace(word, Pattern, string.Empty).ToLower();
+        string newWord = (string)word.Where(char.IsLetter).Select(char.ToLower);
 
         foreach (var key in newWord)
         {
