@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Text.RegularExpressions;
 
 public static class Acronym
@@ -7,12 +8,11 @@ public static class Acronym
     public static string Abbreviate(string phrase)
     {
         var array = Regex.Split(phrase, Pattern);
-        var str = "";
+        StringBuilder str = new StringBuilder();
         foreach (var x in array) 
         {
-            str += x[0];
+            str.Append(x[0]); 
         }
-
-        return str.ToUpper();
+        return str.ToString().ToUpper();
     }
 }
