@@ -9,3 +9,5 @@ public static class Leap
     private static bool IsDivisibleByFourHundred(int year) => year % 400 == 0;
     public static bool IsLeapYear(int year) => IsDivisibleByFourHundred(year) || IsDivisibleByFour(year) && IsDivisibleByHundred(year);
 }
+
+//

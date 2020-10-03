@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\137090\\Exercism\\csharp\\leap\\Leap.csproj": {}
+    "C:\\Users\\137090\\Documents\\GitHub\\learning-C-sharp\\leap\\Leap.csproj": {}
   },
   "projects": {
-    "C:\\Users\\137090\\Exercism\\csharp\\leap\\Leap.csproj": {
+    "C:\\Users\\137090\\Documents\\GitHub\\learning-C-sharp\\leap\\Leap.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\137090\\Exercism\\csharp\\leap\\Leap.csproj",
+        "projectUniqueName": "C:\\Users\\137090\\Documents\\GitHub\\learning-C-sharp\\leap\\Leap.csproj",
         "projectName": "Leap",
-        "projectPath": "C:\\Users\\137090\\Exercism\\csharp\\leap\\Leap.csproj",
+        "projectPath": "C:\\Users\\137090\\Documents\\GitHub\\learning-C-sharp\\leap\\Leap.csproj",
         "packagesPath": "C:\\Users\\137090\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\137090\\Exercism\\csharp\\leap\\obj\\",
+        "outputPath": "C:\\Users\\137090\\Documents\\GitHub\\learning-C-sharp\\leap\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\137090\\AppData\\Roaming\\NuGet\\NuGet.Config",
