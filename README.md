@@ -2,6 +2,6 @@
 Desafios propostos da plataforma Excercism
 
 Nesses desafios, estão implicidamente a contrução de pequenos projetos
-em C#, para reforça as boas praticas.
+em C#, para reforçar as boas praticas.
 
 Totalmente feito em TDD.
