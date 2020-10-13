@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MFBgma5a39s3qLySC80yCpryg5WKhL3MHMMmphFDAm0Z7dDI0b0bke5/wZOsWp4xuwjucOpQXEo2NfUiI16aHQ==",
+  "dgSpecHash": "pmTlTkUYzqHPISXgPj9W6nKvXUTYQMwhlQ6GGDd0QiRLWQmX13sNEUaRTo+ii0Sh9fazpK+EHJcbrl1sItsZKA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\137090\\Exercism\\csharp\\perfect-numbers\\PerfectNumbers.csproj",
+  "projectFilePath": "C:\\Users\\137090\\Documents\\GitHub\\learning-C-sharp\\perfect-numbers\\PerfectNumbers.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\137090\\.nuget\\packages\\microsoft.codecoverage\\16.7.1\\microsoft.codecoverage.16.7.1.nupkg.sha512",
     "C:\\Users\\137090\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
