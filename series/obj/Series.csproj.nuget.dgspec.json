@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\137090\\Documents\\GitHub\\learning-C-sharp\\perfect-numbers\\PerfectNumbers.csproj": {}
+    "C:\\Users\\137090\\Exercism\\csharp\\series\\Series.csproj": {}
   },
   "projects": {
-    "C:\\Users\\137090\\Documents\\GitHub\\learning-C-sharp\\perfect-numbers\\PerfectNumbers.csproj": {
+    "C:\\Users\\137090\\Exercism\\csharp\\series\\Series.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\137090\\Documents\\GitHub\\learning-C-sharp\\perfect-numbers\\PerfectNumbers.csproj",
-        "projectName": "PerfectNumbers",
-        "projectPath": "C:\\Users\\137090\\Documents\\GitHub\\learning-C-sharp\\perfect-numbers\\PerfectNumbers.csproj",
+        "projectUniqueName": "C:\\Users\\137090\\Exercism\\csharp\\series\\Series.csproj",
+        "projectName": "Series",
+        "projectPath": "C:\\Users\\137090\\Exercism\\csharp\\series\\Series.csproj",
         "packagesPath": "C:\\Users\\137090\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\137090\\Documents\\GitHub\\learning-C-sharp\\perfect-numbers\\obj\\",
+        "outputPath": "C:\\Users\\137090\\Exercism\\csharp\\series\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\137090\\AppData\\Roaming\\NuGet\\NuGet.Config",
