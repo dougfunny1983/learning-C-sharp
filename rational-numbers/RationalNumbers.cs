@@ -1,72 +1,50 @@
 ﻿using System;
-using System.Diagnostics;
 
 public static class RealNumberExtension
 {
-    public static double Expreal(this int realNumber, RationalNumber r)
-    {
-        throw new NotImplementedException("You need to implement this extension method.");
-    }
+    public static double Expreal(this int realNumber, RationalNumber r) => r.Expreal(realNumber);
 }
 
 public struct RationalNumber
 {
-    public int Numerator { get; private set; }
-    public int Denominator { get; private set; }
 
-    //private readonly int Numerator;
-    //private readonly int Denominator;
+    private readonly int a;
+    private readonly int b;
+
 
     public RationalNumber(int numerator, int denominator)
     {
-        Numerator = numerator;
-        Denominator = denominator;
+        if (denominator != 0)
+        {
+            int gcd = GreatestCommonDivisor(numerator, denominator);
+            a = numerator / gcd;
+            b = denominator / gcd;
+        }
+        else throw new ArgumentException();
     }
 
-    //public static Source operator +(Source s1, Source s2) // SOMA
-    //{
-    //    return new Source { Number = s1.Number + s2.Number };
-    //}
 
-    public static RationalNumber operator +(RationalNumber r1, RationalNumber r2)
-    {
-        //return new RationalNumber ( r1.Numerator + r2.Denominator );
-        return new RationalNumber ( r1.Numerator + r2.Denominator, r1.Numerator + r2.Denominator );
-        //return new RationalNumber { r1.Numerator + r2.Denominator };
-    }
+    private static int GreatestCommonDivisor(int a, int b) => b == 0 ? a : GreatestCommonDivisor(b, a % b);
 
-    public static RationalNumber operator -(RationalNumber r1, RationalNumber r2)
-    {
-        throw new NotImplementedException("You need to implement this operator.");
-    }
+    public static RationalNumber operator +(RationalNumber r1, RationalNumber r2) => new RationalNumber(r1.a * r2.b + r2.a * r1.b, r1.b * r2.b);
 
-    public static RationalNumber operator *(RationalNumber r1, RationalNumber r2)
-    {
-        throw new NotImplementedException("You need to implement this operator.");
-    }
+    public static RationalNumber operator -(RationalNumber r1, RationalNumber r2) => new RationalNumber(r1.a * r2.b - r2.a * r1.b, r1.b * r2.b);
 
-    public static RationalNumber operator /(RationalNumber r1, RationalNumber r2)
-    {
-        throw new NotImplementedException("You need to implement this operator.");
-    }
+    public static RationalNumber operator *(RationalNumber r1, RationalNumber r2) => new RationalNumber(r1.a * r2.a, r1.b * r2.b);
 
-    public RationalNumber Abs()
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
+    public static RationalNumber operator /(RationalNumber r1, RationalNumber r2) => new RationalNumber(r1.a * r2.b, r1.b * r2.a);
+
+    public RationalNumber Abs() => new RationalNumber(Math.Abs(a), Math.Abs(b));
 
     public RationalNumber Reduce()
     {
-        throw new NotImplementedException("You need to implement this function.");
+        int gcd = GreatestCommonDivisor(a, b);
+        int numerator = a / gcd;
+        int denominator = b / gcd;
+        return denominator < 0 ? new RationalNumber(-numerator, -denominator) : new RationalNumber(numerator, denominator);
     }
 
-    public RationalNumber Exprational(int power)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
+    public RationalNumber Exprational(int power) => new RationalNumber((int)Math.Pow(a, Math.Abs(power)), (int)Math.Pow(b, Math.Abs(power)));
 
-    public double Expreal(int baseNumber)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
+    public double Expreal(int baseNumber) => Math.Pow(baseNumber, (double)a / b);
 }
