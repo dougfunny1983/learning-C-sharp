@@ -1,31 +1,35 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 public static class Raindrops
 {
-
-    private static string RaindropsSwitch(int number, int defaut)
+    private static string RaindropsSwitch(int number)
         => number switch
         {
             3 => "Pling",
             5 => "Plang",
             7 => "Plong",
-            _ => $"{defaut}",
+            _ => throw new NotImplementedException(),
         };
+
+    private static bool DecisionMakerOnFactors(int number, int factor) => number % factor == 0;
 
     public static string Convert(int number)
     {
-        StringBuilder answer = new StringBuilder();
+        StringBuilder str = new StringBuilder();
 
-        IEnumerable<int> EvenNumbers = Enumerable.Range(1, number).Where(num => number % num == 0).Where(val => val == 3 || val == 5 || val == 7);
+        if (DecisionMakerOnFactors(number, 3))
+            str.Append(RaindropsSwitch(3));
 
-        foreach (int x in EvenNumbers.DefaultIfEmpty(0))
-        {
-            answer.Append(RaindropsSwitch(x, number));
-        }
+        if (DecisionMakerOnFactors(number, 5))
+            str.Append(RaindropsSwitch(5));
 
-        return answer.ToString(); ;
+        if (DecisionMakerOnFactors(number, 7))
+            str.Append(RaindropsSwitch(7));
+
+        string answer = str.ToString();
+
+        return answer == string.Empty ? number.ToString() : answer;
+
     }
 }
