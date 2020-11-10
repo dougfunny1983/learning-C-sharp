@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 public class Robot
 {
@@ -13,7 +12,7 @@ public class Robot
 //Singleton simple thread-safety
 internal class RobotNameGenerator
 {
-    public HashSet<string> NomesUtilizados = new HashSet<string>();
+    public HashSet<string> HashRobotNames = new HashSet<string>();
 
     private static RobotNameGenerator instance = null;
 
@@ -35,24 +34,25 @@ internal class RobotNameGenerator
 
     public string Generate()
     {
-        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        const string number = "0123456789";
-        string nameRobot = randomNameRobot(chars, number);
 
-        while (instance.NomesUtilizados.Contains(nameRobot))
-            nameRobot = randomNameRobot(chars, number);
+        string nameRobot = RandomNameRobot();
 
-        instance.NomesUtilizados.Add(nameRobot);
+        while (instance.HashRobotNames.Contains(nameRobot))
+            nameRobot = RandomNameRobot();
+
+        instance.HashRobotNames.Add(nameRobot);
         return nameRobot;
     }
 
+    public static string RandomAlphaNumeric(int flag = 0)
+    => flag switch
+    {
+        0 => new string(((char)('A' + new Random().Next(26))).ToString()),
+        1 => new Random().Next(1000).ToString("000"),
+        _ => throw new NotImplementedException(),
+    };
 
-    private static string RandomAlphanumeric(string flag, int loops = 3) => new string(
-            Enumerable.Repeat(flag, loops)
-                      .Select(str => str[new Random().Next(str.Length)])
-                      .ToArray());
-
-    private static string randomNameRobot(string chars, string number) =>
-        RandomAlphanumeric(chars, 2) + RandomAlphanumeric(number);
+    private static string RandomNameRobot() =>
+        new string(RandomAlphaNumeric() + RandomAlphaNumeric() + RandomAlphaNumeric(1));
 
 }

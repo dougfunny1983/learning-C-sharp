@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C0/uurGVRnzZFFsvvjK9pZUx3fMASu+D8q/Dto2Y6XXM9wu54sKDNOftskz2/yw8Opx6r9sZTP5cvM1Mmu3jxg==",
+  "dgSpecHash": "3aFal55zG22JJKtq7nKuqA0QJm0I6RdzcIPtHBqudUsnCQ+N44dK3IoPn4NUIdjTdzR4ts13w7KVfEvvSDnDug==",
   "success": true,
-  "projectFilePath": "C:\\Users\\137090\\Exercism\\csharp\\robot-name\\RobotName.csproj",
+  "projectFilePath": "C:\\Users\\137090\\Documents\\GitHub\\learning-C-sharp\\robot-name\\RobotName.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\137090\\.nuget\\packages\\microsoft.codecoverage\\16.7.1\\microsoft.codecoverage.16.7.1.nupkg.sha512",
     "C:\\Users\\137090\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",

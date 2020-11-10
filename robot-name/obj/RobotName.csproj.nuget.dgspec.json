@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\137090\\Exercism\\csharp\\robot-name\\RobotName.csproj": {}
+    "C:\\Users\\137090\\Documents\\GitHub\\learning-C-sharp\\robot-name\\RobotName.csproj": {}
   },
   "projects": {
-    "C:\\Users\\137090\\Exercism\\csharp\\robot-name\\RobotName.csproj": {
+    "C:\\Users\\137090\\Documents\\GitHub\\learning-C-sharp\\robot-name\\RobotName.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\137090\\Exercism\\csharp\\robot-name\\RobotName.csproj",
+        "projectUniqueName": "C:\\Users\\137090\\Documents\\GitHub\\learning-C-sharp\\robot-name\\RobotName.csproj",
         "projectName": "RobotName",
-        "projectPath": "C:\\Users\\137090\\Exercism\\csharp\\robot-name\\RobotName.csproj",
+        "projectPath": "C:\\Users\\137090\\Documents\\GitHub\\learning-C-sharp\\robot-name\\RobotName.csproj",
         "packagesPath": "C:\\Users\\137090\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\137090\\Exercism\\csharp\\robot-name\\obj\\",
+        "outputPath": "C:\\Users\\137090\\Documents\\GitHub\\learning-C-sharp\\robot-name\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\137090\\AppData\\Roaming\\NuGet\\NuGet.Config",
