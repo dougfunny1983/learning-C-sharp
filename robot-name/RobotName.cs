@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 public class Robot
 {
@@ -12,7 +13,9 @@ public class Robot
 //Singleton simple thread-safety
 internal class RobotNameGenerator
 {
-    public HashSet<string> HashRobotNames = new HashSet<string>();
+    private ConcurrentHashSet<string> HashRobotNames = new ConcurrentHashSet<string>();
+
+    private static Random _random = new Random();
 
     private static RobotNameGenerator instance = null;
 
@@ -37,22 +40,107 @@ internal class RobotNameGenerator
 
         string nameRobot = RandomNameRobot();
 
-        while (instance.HashRobotNames.Contains(nameRobot))
-            nameRobot = RandomNameRobot();
+        if (instance.HashRobotNames.Contains(nameRobot)) return Generate();
 
         instance.HashRobotNames.Add(nameRobot);
+
         return nameRobot;
     }
 
-    public static string RandomAlphaNumeric(int flag = 0)
+    private static string RandomAlphaNumeric(int flag = 0)
     => flag switch
     {
-        0 => new string(((char)('A' + new Random().Next(26))).ToString()),
-        1 => new Random().Next(1000).ToString("000"),
+        0 => new string(((char)('A' + _random.Next(26))).ToString()),
+        1 => _random.Next(1000).ToString("000"),
         _ => throw new NotImplementedException(),
     };
 
     private static string RandomNameRobot() =>
         new string(RandomAlphaNumeric() + RandomAlphaNumeric() + RandomAlphaNumeric(1));
 
+}
+
+
+//stackoverflow - How to implement ConcurrentHashSet in .Net? author Ben Mosher
+public class ConcurrentHashSet<T> : IDisposable
+{
+    private readonly ReaderWriterLockSlim _lock = new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion);
+    private readonly HashSet<T> _hashSet = new HashSet<T>();
+
+    #region Implementation of ICollection<T> ...ish
+    public bool Add(T item)
+    {
+        try
+        {
+            _lock.EnterWriteLock();
+            return _hashSet.Add(item);
+        }
+        finally
+        {
+            if (_lock.IsWriteLockHeld) _lock.ExitWriteLock();
+        }
+    }
+
+    public void Clear()
+    {
+        try
+        {
+            _lock.EnterWriteLock();
+            _hashSet.Clear();
+        }
+        finally
+        {
+            if (_lock.IsWriteLockHeld) _lock.ExitWriteLock();
+        }
+    }
+
+    public bool Contains(T item)
+    {
+        try
+        {
+            _lock.EnterReadLock();
+            return _hashSet.Contains(item);
+        }
+        finally
+        {
+            if (_lock.IsReadLockHeld) _lock.ExitReadLock();
+        }
+    }
+
+    public bool Remove(T item)
+    {
+        try
+        {
+            _lock.EnterWriteLock();
+            return _hashSet.Remove(item);
+        }
+        finally
+        {
+            if (_lock.IsWriteLockHeld) _lock.ExitWriteLock();
+        }
+    }
+
+    public int Count
+    {
+        get
+        {
+            try
+            {
+                _lock.EnterReadLock();
+                return _hashSet.Count;
+            }
+            finally
+            {
+                if (_lock.IsReadLockHeld) _lock.ExitReadLock();
+            }
+        }
+    }
+    #endregion
+
+    #region Dispose
+    public void Dispose()
+    {
+        if (_lock != null) _lock.Dispose();
+    }
+    #endregion
 }
